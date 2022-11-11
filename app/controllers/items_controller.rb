@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_signed_in, except: [:index]
 
   def index
+    @items =Item.all
   end
 
   def new
