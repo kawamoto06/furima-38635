@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_signed_in, except: [:index]
 
   def index
-    @items =Item.all
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -16,6 +16,11 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def shipping_cost
+    @item = Item.find_by(shipping_cost_id: params[:id])
+    @items = Item.where(shipping_cost_id: params[:id]).order('created_at DESC')
   end
 
   private
