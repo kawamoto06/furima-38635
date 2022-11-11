@@ -159,7 +159,6 @@
       </li>
       <% end %>
 
-      <% if @items[0] != nil %>
       <% if @items.length == 0 %>
       <li class='list'>
         <%= link_to '#' do %>
@@ -179,7 +178,7 @@
         <% end %>
       </li>
       <% end%>
-      <% end %>
+      
     </ul>
   </div>
   <%# /商品一覧 %>
