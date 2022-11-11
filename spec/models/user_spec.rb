@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it '全ての項目の入力がが存在すれば登録できること' do
+      it '全ての項目の入力が存在すれば登録できること' do
         expect(@user).to be_valid
       end
       it 'passwordが6文字以上かつ半角英数字混合であれば登録できること' do
