@@ -18,11 +18,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def shipping_cost
-    @item = Item.find_by(shipping_cost_id: params[:id])
-    @items = Item.where(shipping_cost_id: params[:id]).order('created_at DESC')
-  end
-
   private
 
   def item_params
