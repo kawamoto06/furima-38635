@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_signed_in, except: [:index, :show]
-  before_action :ensure_user, only: [:edit]
+  before_action :ensure_user, only: [:edit, :destroy]
   before_action :set_item, only: [:edit, :show]
 
   def index
@@ -33,6 +33,11 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
   private
