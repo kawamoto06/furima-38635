@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
     redirect_to '/users/sign_in'
   end
-  private
+
   def ensure_user
     @items = current_user.items
     @item = @items.find_by(id: params[:id])
