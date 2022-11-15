@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!,
-  before_action :prevent_url, only: [:index, :create]
+  before_action :authenticate_user!
   before_action :set_furima, only: [:index, :create]
+  before_action :prevent_url, only: [:index, :create]
+  
 
   def index
     @order_ship = OrderShip.new
@@ -42,5 +43,5 @@ class OrdersController < ApplicationController
     if @item.user_id == current_user.id || @item.order != nil
       redirect_to root_path
     end
-
+  end
 end
