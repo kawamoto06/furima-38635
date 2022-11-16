@@ -70,6 +70,23 @@ RSpec.describe OrderShip, type: :model do
         @order_ship.valid?
         expect(@order_ship.errors.full_messages).to include('Phone number is invalid')
       end
+      it '電話番号は電話番号が9桁以下では購入できない' do
+        @order_ship.phone_number = '12345678'
+        @order_ship.valid?
+        expect(@order_ship.errors.full_messages).to include('Phone number is invalid')
+      end
+      it '電話番号は電話番号が12桁以上では購入できない' do
+        @order_ship.phone_number = '1234567892345'
+        @order_ship.valid?
+        expect(@order_ship.errors.full_messages).to include('Phone number is invalid')
+      end
+      it '電話番号はに半角数字以外が含まれている場合は購入できない' do
+        @order_ship.phone_number = '12345678923a'
+        @order_ship.valid?
+        expect(@order_ship.errors.full_messages).to include('Phone number is invalid')
+      end
+
+
       it 'tokenが空だと保存できないこと' do
         @order_ship.token = ''
         @order_ship.valid?
