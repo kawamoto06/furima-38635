@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_signed_in, except: [:index, :show]
   before_action :ensure_user, only: [:edit, :destroy]
   before_action :set_item, only: [:edit, :show]
+  before_action :prevent_url, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.order('created_at DESC')
@@ -61,5 +62,11 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def prevent_url
+    return unless @item.user_id == current_user.id || !@item.order.nil?
+
+    redirect_to root_path
   end
 end
