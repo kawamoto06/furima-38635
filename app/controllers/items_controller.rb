@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_signed_in, except: [:index, :show]
   before_action :set_item, only: [:edit, :show]
   before_action :ensure_user, only: [:edit, :destroy]
-  before_action :prevent_url, only: [:edit, :update, :destroy]
+  before_action :prevent_url, only: [:edit, :destroy]
 
   def index
     @items = Item.order('created_at DESC')
