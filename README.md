@@ -27,7 +27,7 @@
 | category_id       | integer    | null: false                    |
 | condition_id      | integer    | null: false                    |
 | shipping_cost_id  | integer    | null: false                    |
-| prefecture_id    | ingeter    | null: false                    |
+| prefecture_id     | integer    | null: false                    |
 | shipping_date_id  | integer    | null: false                    |
 | price             | integer    | null: false                    | 
 | user              | references | null: false, foreign_key: true |
@@ -64,7 +64,7 @@
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
-| phone_number  | string    | null: false                    |
+| phone_number  | string     | null: false                    |
 | order         | references | null: false, foreign_key: true |
 
 ### Association
