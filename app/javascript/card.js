@@ -1,7 +1,7 @@
 const pay = () => {
-  const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY)
+  const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY);
   const elements = payjp.elements();
-  
+
   const numberElement = elements.create('cardNumber');
   const expiryElement = elements.create('cardExpiry');
   const cvcElement = elements.create('cardCvc');
