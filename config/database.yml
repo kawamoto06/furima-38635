@@ -8,7 +8,7 @@ development:
   username: root
   password:
   host: localhost
-  database: furima_38635_development
+  database: furima-38635_development
 
 test:
   <<: *default
@@ -16,15 +16,13 @@ test:
   username: root
   password:
   host: localhost
-  database: furima_38635_test
+  database: furima-38635_test
 
 production:
   <<: *default
-  adapter: postgresql
-  url: <%= ENV['DATABASE_URL'] %>
-
   adapter: mysql2
   database: furima-38635_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
+  
